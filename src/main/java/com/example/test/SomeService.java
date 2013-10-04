@@ -1,9 +1,11 @@
 package com.example.test;
 
+import org.springframework.stereotype.Component;
 import org.springframework.test.context.ContextConfiguration;
 
 
 @ContextConfiguration("classpath:cucumber.xml")
+@Component
 public class SomeService {
 	String status = "not started";
 	

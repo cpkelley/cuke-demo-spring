@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.example.test.qa.automation</groupId>
+	<groupId>com.dealer.test.qa.automation</groupId>
 	<artifactId>cuke-demo-spring</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
@@ -28,12 +28,6 @@
 	</pluginRepositories>
 
 	<properties>
-		<skip>~@skip</skip>
-		<!-- Override the default Selenium config here -->
-		<selenium.environment>qa</selenium.environment>
-		<selenium.host>localhost</selenium.host>
-		<selenium.port>4444</selenium.port>
-		<selenium.browser>*googlechrome</selenium.browser>
 		<cucumber.options>--tags ${skip} --tags ${tags} --monochrome</cucumber.options>
 
 
@@ -46,6 +40,16 @@
 
 
 	<dependencies>
+		<dependency>
+			<groupId>com.dealer.test.qa.automation</groupId>
+			<artifactId>ddc-selenium-service</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+			<dependency>
+			<groupId>com.dealer</groupId>
+			<artifactId>ddc-spring</artifactId>
+			<version>3.0.9</version>
+		</dependency>
 		<dependency>
 			<groupId>commons-beanutils</groupId>
 			<artifactId>commons-beanutils</artifactId>
@@ -96,11 +100,6 @@
 		<dependency>
             <groupId>info.cukes</groupId>
             <artifactId>cucumber-spring</artifactId>
-            <version>1.1.5</version>
-        </dependency>
-        <dependency>
-            <groupId>info.cukes</groupId>
-            <artifactId>cucumber-picocontainer</artifactId>
             <version>1.1.5</version>
         </dependency>
 		<dependency>

@@ -7,12 +7,27 @@
 http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
                 http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
 
-	<context:component-scan base-package="com.example.test" />
-	<import resource="classpath*: /applicationContext.xml" />
- 	<bean id="someService" class="com.example.test.SomeService" init-method="start" destroy-method="stop">		
-	</bean>	
+	<context:component-scan base-package="com.dealer.test" />
+	
+	<bean id="seleniumService" class="com.dealer.test.seleniumservice.SeleniumService" init-method="start" destroy-method="stop">
+		<property name="browser" value="googlechrome" />
+		<property name="host" value="10.128.8.139" />
+		<property name="port" value="4444" />		
+	</bean>
+	<bean id="cleanBean" class="com.dealer.test.stepdefinitions.CleanBean" scope="cucumber-glue" />		
 	
 	
+		<!-- Required for environment.properties support AND to override browser/host/port on CLI  -->
+	<bean id="environmentPropertyPlaceholderConfigurer" class="com.dealer.spring.config.EnvironmentPropertyPlaceholderConfigurer">
+        <property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
+        <property name="searchSystemEnvironment" value="true"/>
+        <property name="locations">
+            <list>
+                <value>classpath:META-INF/defaultEnvironment.properties</value>
+                <value>classpath:environment.properties</value>
+            </list>
+        </property>        
+    </bean>	
 	<!-- EnvironmentPropertyPlaceholderConfigurer  --> 
 	
 	

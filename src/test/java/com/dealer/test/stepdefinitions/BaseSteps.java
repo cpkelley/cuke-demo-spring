@@ -1,13 +1,16 @@
-package com.example.test.stepdefinitions;
+package com.dealer.test.stepdefinitions;
 
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
-import com.example.test.SomeService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ContextConfiguration;
+
+import com.dealer.test.pageobjects.Page;
+import com.dealer.test.seleniumservice.*;
 
 import cucumber.api.java.*;
 import cucumber.api.java.en.Given;
@@ -20,27 +23,28 @@ import cucumber.api.java.en.When;
 public class BaseSteps {
 	
 	public Logger logger = Logger.getLogger(this.getClass().getSimpleName());
-	//@Autowired CleanBean cleanBean;
+	@Autowired
 	CleanBean cleanBean;
+	@Autowired
+	SeleniumService seleniumService;
 	
-	@Autowired 
-	SomeService someService;
 	
-	
-	public BaseSteps(CleanBean cleanBean) {
-		this.cleanBean = cleanBean;
+	@Before 
+	public void clean() throws Throwable {
+		logger.info("Cleaning the Bean");
 	}
+	
 	
 	@When("^things are not null") 
 	public void not_null() {
-		assertThat(someService, is(notNullValue()));
+		assertThat(seleniumService, is(notNullValue()));
 		assertThat(cleanBean, is(notNullValue()));
 		
 	}
 	
 	@Given("^service is started$") 
 	public void started(){
-		assertThat(someService.getStatus(), is(equalTo("started")));
+		assertThat(seleniumService.getDriver(), is(notNullValue()));
 	}
 	
 	@When("^user is set")
@@ -48,7 +52,5 @@ public class BaseSteps {
 		cleanBean.setUser("blah");
 		logger.info("User: " + cleanBean.getUser());
 	}
-	
-	
 
 }
