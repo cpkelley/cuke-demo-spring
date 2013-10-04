@@ -35,7 +35,7 @@
 		<selenium.port>4444</selenium.port>
 		<selenium.browser>*googlechrome</selenium.browser>
 		<cucumber.options>--tags ${skip} --tags ${tags} --monochrome</cucumber.options>
-
+		<cucumber.version>1.1.5</cucumber.version>
 
 		<!-- CPK 2/4/2013 - to be uncommented when moved to jenkins <features>classpath:features</features> -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -79,13 +79,13 @@
 		<dependency>
 			<groupId>info.cukes</groupId>
 			<artifactId>cucumber-junit</artifactId>
-			<version>1.1.5</version>
+			<version>${cucumber.version}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>info.cukes</groupId>
 			<artifactId>cucumber-java</artifactId>
-			<version>1.1.5</version>
+			<version>${cucumber.version}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
@@ -96,14 +96,9 @@
 		<dependency>
             <groupId>info.cukes</groupId>
             <artifactId>cucumber-spring</artifactId>
-            <version>1.1.5</version>
+            <version>${cucumber.version}</version>
         </dependency>
-        <dependency>
-            <groupId>info.cukes</groupId>
-            <artifactId>cucumber-picocontainer</artifactId>
-            <version>1.1.5</version>
-        </dependency>
-		<dependency>
+ 		<dependency>
 			<groupId>info.cukes</groupId>
 			<artifactId>cucumber-html</artifactId>
 			<version>0.2.2</version>

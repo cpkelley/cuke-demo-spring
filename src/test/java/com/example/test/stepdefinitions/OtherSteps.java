@@ -20,14 +20,7 @@ public class OtherSteps {
 	
 	public Logger logger = Logger.getLogger(this.getClass().getSimpleName());
 	@Autowired SomeService someService;
-	//@Autowired CleanBean cleanBean; 
-	private CleanBean cleanBean;
-	
-	 
-	 public OtherSteps(CleanBean cleanBean) {
-		 this.cleanBean = cleanBean;
-	 }
-	 
+	@Autowired CleanBean cleanBean; 
 
 
 	@Then("^there is a user$")

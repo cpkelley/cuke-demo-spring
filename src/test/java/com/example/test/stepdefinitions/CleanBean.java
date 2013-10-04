@@ -3,6 +3,7 @@ package com.example.test.stepdefinitions;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import org.springframework.test.context.ContextConfiguration;
 
@@ -13,8 +14,7 @@ import org.springframework.test.context.ContextConfiguration;
  * Store any test data that will be shared within a scenario in this test data holder. 
  * This singleton should be reset on a per Scenario basis so that there is no leaking of test data.  
  */
-//@ContextConfiguration("classpath:cucumber.xml")
-//@Component
+@ContextConfiguration("classpath:cucumber.xml")
 public class CleanBean {
 	public String user;
 	

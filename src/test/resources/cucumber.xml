@@ -11,7 +11,7 @@ http://www.springframework.org/schema/beans http://www.springframework.org/schem
 	<import resource="classpath*: /applicationContext.xml" />
  	<bean id="someService" class="com.example.test.SomeService" init-method="start" destroy-method="stop">		
 	</bean>	
-	
+	<bean id="cleanBean" class="com.example.test.stepdefinitions.CleanBean" scope="cucumber-glue"/>
 	
 	<!-- EnvironmentPropertyPlaceholderConfigurer  --> 
 	

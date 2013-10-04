@@ -20,21 +20,17 @@ import cucumber.api.java.en.When;
 public class BaseSteps {
 	
 	public Logger logger = Logger.getLogger(this.getClass().getSimpleName());
-	//@Autowired CleanBean cleanBean;
-	CleanBean cleanBean;
+	@Autowired CleanBean cleanBean;
+
 	
 	@Autowired 
 	SomeService someService;
 	
-	
-	public BaseSteps(CleanBean cleanBean) {
-		this.cleanBean = cleanBean;
-	}
-	
 	@When("^things are not null") 
 	public void not_null() {
-		assertThat(someService, is(notNullValue()));
 		assertThat(cleanBean, is(notNullValue()));
+		assertThat(someService, is(notNullValue()));
+		
 		
 	}
 	
